@@ -1,0 +1,60 @@
+/* Sidebar Styling */
+aside {
+    background: #F5F1E9; 
+    padding: 20px;
+    border-right: 2px solid #ddd;
+}
+
+/* Sorting buttons */
+.btn-light {
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Product card */
+.product-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Placeholder image */
+.product-image {
+    background: #D3D3D3;
+    height: 200px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Price tag */
+.price-tag {
+    background: #D84040;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Hide sidebar on small screens */
+@media (max-width: 992px) {
+    aside {
+        display: none;
+    }
+    .d-md-none {
+        display: block;
+    }
+}
+
+/* Responsive grid */
+@media (max-width: 992px) {
+    .col-lg-3 {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-lg-3 {
+        width: 100%;
+    }
+}
