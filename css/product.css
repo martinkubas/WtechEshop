@@ -1,0 +1,18 @@
+.prod-image {
+    height: 400px;
+    object-fit: contain;
+}
+.price-text {
+    color: #D84040;
+    font-size: 28px;
+    font-weight: 600;
+}
+.carousel-control-prev, 
+.carousel-control-next {
+    background: rgba(0, 0, 0, 0.3); 
+    border-radius: 5px; 
+    width: 50px; 
+    height: 50px; 
+    top: 50%;
+    transform: translateY(-50%);
+}

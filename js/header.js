@@ -1,24 +1,28 @@
 function loadHeader() {
+    if (!document.querySelector('link[href*="bootstrap-icons"]')) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css";
+        document.head.appendChild(link);
+    }
     const headerHTML = `
-        <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
-
                 <a class="navbar-brand fw-bold text-white" href="index.html">
                     <span id="game">Game</span><span class="text-light">Go</span>
                 </a>
 
-                <!-- Navbar Toggler -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">
+                    
+                    </span>
                 </button>
 
-                <!-- Navbar Content -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto text-center">
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">
-                                ☰ All Categories
+                        <li class="nav-item dropdown position-relative">
+                            <a class="nav-link category-link" href="../html/products.html" id="categoriesDropdown">
+                                ☰ <span class="category-text">All Categories</span>
                             </a>
                             <div class="dropdown-menu p-3 custom-dropdown">
                                 <div class="row">
@@ -56,50 +60,44 @@ function loadHeader() {
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item"><a class="nav-link text-white text font-weight-bold" href="#"> HOT & NEW</a></li>
-                        <li class="nav-item"><a class="nav-link text-whitefont-weight-bold" href="#"> Best Deals</a></li>
-
-                        <!-- Search Bar (Moves inside menu on mobile) -->
-                        <li class="nav-item w-100 px-3 d-lg-none">
-                            <form class="d-flex mt-2" id="searchForm">
-                                <input class="form-control" type="search" placeholder="Search products..." id="searchInput">
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="#"> HOT & NEW</a></li>
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="#"> Best Deals</a></li>
+                        
+                        <!-- Search Bar in Mobile Menu -->
+                        <li class="nav-item d-lg-none">
+                            <form class="d-flex" id="searchFormMobile">
+                                <input class="form-control" type="search" placeholder="Search products..." id="searchInputMobile">
                             </form>
                         </li>
 
-                        <!-- Icons (Move inside menu on mobile) -->
-                        <li class="nav-item d-lg-none text-center mt-3">
+                        <!-- User Icon in Mobile Menu -->
+                        <li class="nav-item d-lg-none">
                             <a href="#" class="btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-                                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.68l3.3-7H5.84l1.32 7zM3 4h2.05l.93 5H19l2-5H5.82L5 2H1v2h2z"/>
-                                </svg>
+                                <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
                             </a>
+                        </li>
 
+                        <!-- Shopping Cart in Mobile Menu -->
+                        <li class="nav-item d-lg-none">
                             <a href="#" class="btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-                                    <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/>
-                                </svg>
+                                <i class="bi bi-basket2-fill text-white" style="font-size: 24px;"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Search Bar (desktop) -->
+                <!-- Search Bar for Desktop -->
                 <form class="d-flex d-none d-lg-block" id="searchFormDesktop">
                     <input class="form-control" type="search" placeholder="Search products..." id="searchInputDesktop">
                 </form>
-
-                <!-- Icons (desktop) -->
-                <div class="ms-3 d-flex gap-2 d-none d-lg-flex">
+                
+                <!-- User and Shopping Cart for Desktop -->
+                <div class="ms-3 d-flex gap-3 d-none d-lg-flex">
                     <a href="#" class="btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-                            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.68l3.3-7H5.84l1.32 7zM3 4h2.05l.93 5H19l2-5H5.82L5 2H1v2h2z"/>
-                        </svg>
+                        <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
                     </a>
-
                     <a href="#" class="btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/>
-                        </svg>
+                        <i class="bi bi-basket2-fill text-white" style="font-size: 24px;"></i>
                     </a>
                 </div>
             </div>
@@ -107,20 +105,27 @@ function loadHeader() {
     `;
 
     document.getElementById("site-header").innerHTML = headerHTML;
-
-    // Make search forms submit on Enter
-    function setupSearchForm(formId, inputId) {
-        document.getElementById(formId).addEventListener("submit", function (event) {
-            event.preventDefault();
-            const query = document.getElementById(inputId).value.trim();
-            if (query) {
-                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-            }
-        });
+    
+    /* --searchbar--
+    function handleSearch(event) {
+        event.preventDefault(); // Prevents page refresh
+        const query = event.target.querySelector("input").value.trim();
+        if (query) {
+            window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+        }
     }
+    
+    document.getElementById("searchFormDesktop").addEventListener("submit", handleSearch);
+    document.getElementById("searchFormMobile").addEventListener("submit", handleSearch);
+   */
+    document.querySelector(".category-text").addEventListener("mouseover", function() {
+        document.querySelector(".custom-dropdown").style.display = "block";
+    });
 
-    setupSearchForm("searchForm", "searchInput");
-    setupSearchForm("searchFormDesktop", "searchInputDesktop");
+    document.querySelector(".custom-dropdown").addEventListener("mouseleave", function() {
+        this.style.display = "none";
+    });
+
 }
 
 document.addEventListener("DOMContentLoaded", loadHeader);

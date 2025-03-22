@@ -1,17 +1,14 @@
 #gameCarousel {
-    height: 70vh; /* 60% of the viewport height */
+    height: 70vh; 
 }
-
 #gameCarousel .carousel-inner,
 #gameCarousel .carousel-item {
     height: 100%;
 }
-
 #gameCarousel .carousel-item img {
     height: 100%;
-    object-fit: cover; /* Ensures images scale properly without distortion */
+    object-fit: cover; 
 }
-
 .carousel-caption {
     position: absolute;
     bottom: 10%;
@@ -19,4 +16,13 @@
     background: rgba(0, 0, 0, 0.7);
     padding: 15px;
     border-radius: 10px;
+}
+.carousel-control-prev, 
+.carousel-control-next {
+    background: rgba(0, 0, 0, 0.3); 
+    border-radius: 5px; 
+    width: 75px; 
+    height: 75px; 
+    top: 50%;
+    transform: translateY(-50%);
 }

@@ -1,51 +1,48 @@
-/* Custom Styles */
 .navbar {
-    background-color: #D84040 !important; 
+    background-color: #D84040; 
 }
 #game {
     color: #A31D1D;
     font-weight: bolder;
 }
 .navbar-brand {
-    font-size: 32px;
+    font-size: 32px; 
     font-weight: bolder;
 }
-.nav-item{
+.nav-item {
     font-weight: 900;
 }
-
 .navbar-nav .nav-link {
-    color: white !important; 
+    font-size: 1.1rem;
+    color: white;
+    margin-right: 1rem;
 }
-
 .navbar-nav .nav-link:hover {
     text-decoration: underline;
 }
-
-.dropdown-menu {
-    background: white;
+.navbar-toggler {
+    border-color: white !important;
 }
 
-.search-container {
-    position: relative;
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
-
-.search-input {
-    padding-right: 35px;
-}
-
-.search-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: gray;
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    box-shadow: none !important;
 }
 .custom-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 400px;
     background: #D84040;
     color: white;
     border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .custom-dropdown strong {
@@ -55,21 +52,22 @@
     border-bottom: 1px solid white;
     margin-bottom: 5px;
 }
-
 .custom-dropdown ul {
     padding-left: 0;
 }
-
 .custom-dropdown ul li {
     list-style: none;
     padding: 2px 0;
 }
-#categoriesDropdown::after {
-    display: none !important;
+.nav-item.dropdown:hover .custom-dropdown {
+    display: block;
 }
-
-@media (max-width: 550px) {  
+#categoriesDropdown::after {
+    display: none;
+}
+@media (max-width: 991px) {  
     .custom-dropdown {
-        width: 100%; 
+        width: 100% !important;
+        
     }
 }
