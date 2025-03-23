@@ -1,0 +1,38 @@
+.signup-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    border: none;
+    background: none;
+}
+
+.close-btn:hover {
+    color: #D84040;
+}
+
+.signup-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-signup {
+    background: #D84040;
+    color: white;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.btn-signup:hover {
+    background: #A31D1D;
+    color: white;
+}

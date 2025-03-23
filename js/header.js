@@ -60,8 +60,8 @@ function loadHeader() {
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="#"> HOT & NEW</a></li>
-                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="#"> Best Deals</a></li>
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="../html/products.html"> HOT & NEW</a></li>
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="../html/products.html"> Best Deals</a></li>
                         
                         <!-- Search Bar in Mobile Menu -->
                         <li class="nav-item d-lg-none">
@@ -72,7 +72,7 @@ function loadHeader() {
 
                         <!-- User Icon in Mobile Menu -->
                         <li class="nav-item d-lg-none">
-                            <a href="#" class="btn">
+                            <a href="../html/login.html" class="btn">
                                 <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
                             </a>
                         </li>
@@ -93,7 +93,7 @@ function loadHeader() {
                 
                 <!-- User and Shopping Cart for Desktop -->
                 <div class="ms-3 d-flex gap-3 d-none d-lg-flex">
-                    <a href="#" class="btn">
+                    <a href="../html/login.html" class="btn">
                         <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
                     </a>
                     <a href="#" class="btn">
@@ -118,6 +118,7 @@ function loadHeader() {
     document.getElementById("searchFormDesktop").addEventListener("submit", handleSearch);
     document.getElementById("searchFormMobile").addEventListener("submit", handleSearch);
    */
+
     document.querySelector(".category-text").addEventListener("mouseover", function() {
         document.querySelector(".custom-dropdown").style.display = "block";
     });
@@ -125,6 +126,12 @@ function loadHeader() {
     document.querySelector(".custom-dropdown").addEventListener("mouseleave", function() {
         this.style.display = "none";
     });
+
+    let currentPage = window.location.href;
+
+    if (!currentPage.includes("login.html") && !currentPage.includes("signup.html")) {
+        localStorage.setItem("lastValidPage", currentPage);
+    }
 
 }
 
