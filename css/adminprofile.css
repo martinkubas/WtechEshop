@@ -1,10 +1,10 @@
-#productUploadSection {
+#productUploadSection, #productRemoveSection {
     background-color: #EFE1B4; 
     padding: 20px;
     border-radius: 10px;
 }
 
-#productUploadForm {
+#productUploadForm, #productRemoveForm {
     background-color: #F5E8C7; 
     padding: 20px;
     border-radius: 6px;
