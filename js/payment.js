@@ -5,9 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const agreement = document.getElementById("agreement");
     const completeOrderBtn = document.getElementById("complete-order");
 
-    // Example: Simulating selection from the previous page
-    const selectedDeliveryMethod = "Courier"; // Change this dynamically
-    const selectedPaymentMethod = "CreditCard"; // Change this dynamically
+    const selectedDeliveryMethod = "Courier"; 
+    const selectedPaymentMethod = "CreditCard"; 
 
     if (selectedDeliveryMethod === "Pickup") {
         deliveryInput.classList.add("hidden");

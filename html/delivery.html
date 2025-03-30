@@ -13,7 +13,6 @@
     <header id="site-header"></header>
     <div class="container mt-4">
         <div class="row">
-            <!-- Form Section -->
             <div class="col-md-6">
                 <h2>Enter Customer Information:</h2>
                 <form>
@@ -32,10 +31,9 @@
                 </form>
             </div>
 
-            <!-- Carousel Section -->
             <div class="col-md-6 carousel-section">
                 <h3>Products in Your Cart:</h3>
-                <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div id="productCarousel" class="carousel slide" data-bs-ride="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="d-flex gap-2">
@@ -86,7 +84,7 @@
 
         <div class="d-flex justify-content-between mt-4">
             <button onclick="window.location.href='cart.html'" class="btn btn-secondary">Modify Cart</button>
-            <button onclick="validateForm()" class="btn btn-danger">Proceed with Selected Options</button>
+            <button onclick="validateForm()" class="btn proceed-btn">Proceed with Selected Options</button>
         </div>
     </div>
     

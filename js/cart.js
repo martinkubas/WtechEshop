@@ -1,9 +1,7 @@
-// Recalculates the total price when the page loads.
 document.addEventListener("DOMContentLoaded", function () {
     updateCartTotal(); 
 });  
 
-// Ensures only numeric input in quantity fields and updates the total price.
 document.querySelectorAll(".quantity-control input").forEach(input => {
     input.addEventListener("input", function () {
         this.value = this.value.replace(/\D/g, '');
@@ -13,7 +11,6 @@ document.querySelectorAll(".quantity-control input").forEach(input => {
         updateCartTotal();
     });
 
-    // Blocks invalid characters during input.
     input.addEventListener("keydown", function (event) {
         if (
             event.key.length === 1 &&
@@ -26,7 +23,6 @@ document.querySelectorAll(".quantity-control input").forEach(input => {
     });
 });
 
-// Changes the quantity of an item and updates the total price.
 function changeQuantity(button, change) {
     let quantityInput = button.parentElement.querySelector("input");
     let newQuantity = parseInt(quantityInput.value) + change;
@@ -38,13 +34,11 @@ function changeQuantity(button, change) {
     updateCartTotal();
 }
 
-// Removes an item from the cart and updates the total price.
 function removeItem(button) {
     button.closest(".cart-item").remove();
     updateCartTotal();
 }
 
-// Calculates and updates the total price of all items in the cart.
 function updateCartTotal() {
     let total = 0;
     let items = document.querySelectorAll(".cart-item");

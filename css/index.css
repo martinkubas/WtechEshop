@@ -26,3 +26,13 @@
     top: 50%;
     transform: translateY(-50%);
 }
+.btn{
+    background: #D84040;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+.btn:hover{
+    background: #A31D1D;
+    color: white;
+}

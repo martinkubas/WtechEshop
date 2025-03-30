@@ -24,7 +24,6 @@ body {
     border-bottom: 1px solid #ddd;
 }
 .cart-item img {
-    /* width: 80px; */
     width: auto;
     height: 80px;
     background-color: #eee;
@@ -83,8 +82,17 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
+.btn{
+    background: #D84040;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+}
+.btn:hover{
+    background: #A31D1D;
+    color: white;
+}
 
-/* Scrollbar styles */
 .cart-container::-webkit-scrollbar {
     width: 8px;
 }
