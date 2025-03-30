@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+    <header id="site-header"></header>
+    <div class="cart-wrapper">
+        <div class="cart-container">
+            <!-- Products will be dynamically added here -->
+            <!-- Example static items for demonstration -->
+            <div class="cart-item" data-price="78.90">
+                <img src="../pictures/ac/ac1.webp" alt="Game 1" class="item-image">
+                <div class="item-name">Assassin’s Creed Shadows</div>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <input type="text" value="1">
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <span class="item-price">$78.90</span>
+                <button class="remove-item" onclick="removeItem(this)">&times;</button>
+            </div>
+        
+            <div class="cart-item" data-price="39.90">
+                <img src="../pictures/spiderman/sp5.webp" alt="Game 2" class="item-image">
+                <div class="item-name">Marvels Spider-Man</div>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <input type="text" value="1">
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <span class="item-price">$39.90</span>
+                <button class="remove-item" onclick="removeItem(this)">&times;</button>
+            </div>
+
+            <div class="cart-item" data-price="67.38">
+                <img src="../pictures/spiderman/sp5.webp" alt="Game 3" class="item-image">
+                <div class="item-name">Marvels Spider-Man 2</div>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <input type="text" value="1">
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <span class="item-price">$67.38</span>
+                <button class="remove-item" onclick="removeItem(this)">&times;</button>
+            </div>
+
+            <div class="cart-item" data-price="87.90">
+                <img src="../pictures/ac/ac1.webp" alt="Game 4" class="item-image">
+                <div class="item-name">Assassin’s Creed Shadows 2</div>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <input type="text" value="1">
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <span class="item-price">$87.90</span>
+                <button class="remove-item" onclick="removeItem(this)">&times;</button>
+            </div>
+        
+            <div class="cart-item" data-price="99.99">
+                <img src="../pictures/spiderman/sp5.webp" alt="Game 5" class="item-image">
+                <div class="item-name">Marvels Spider-Man Full Edition</div>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <input type="text" value="1">
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <span class="item-price">$99.99</span>
+                <button class="remove-item" onclick="removeItem(this)">&times;</button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <button onclick="window.location.href='index.html'" class="btn btn-secondary">Back to Shopping</button>
+            <span>Total: $<span id="cart-current-price">0.00</span></span>
+            <button onclick="window.location.href='delivery.html'" class="btn btn-danger">Proceed to Payment</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+</html>

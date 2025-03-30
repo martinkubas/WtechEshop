@@ -83,7 +83,7 @@ function loadHeader() {
 
                         <!-- Shopping Cart mobile-->
                         <li class="nav-item d-lg-none">
-                            <a href="#" class="btn">
+                            <a href="cart.html" class="btn">
                                 <i class="bi bi-basket2-fill text-white" style="font-size: 24px;"></i>
                             </a>
                         </li>
@@ -106,7 +106,7 @@ function loadHeader() {
                             <li><a class="dropdown-item" href="../html/login.html">Login/Signup</a></li>
                         </ul>
                     </div>
-                    <a href="#" class="btn">
+                    <a href="cart.html" class="btn">
                         <i class="bi bi-basket2-fill text-white" style="font-size: 24px;"></i>
                     </a>
                 </div>
