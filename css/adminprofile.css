@@ -1,0 +1,23 @@
+#productUploadSection {
+    background-color: #EFE1B4; /* Outer section background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#productUploadForm {
+    background-color: #F5E8C7; 
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.btn {
+    background: #D84040;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+.btn:hover{
+    background: #A31D1D;
+    color: white;
+}

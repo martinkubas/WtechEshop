@@ -63,21 +63,25 @@ function loadHeader() {
                         <li class="nav-item"><a class="nav-link text-white fw-bold" href="../html/products.html"> HOT & NEW</a></li>
                         <li class="nav-item"><a class="nav-link text-white fw-bold" href="../html/products.html"> Best Deals</a></li>
                         
-                        <!-- Search Bar in Mobile Menu -->
+                        <!-- Search Bar mobile -->
                         <li class="nav-item d-lg-none">
                             <form class="d-flex" id="searchFormMobile">
                                 <input class="form-control" type="search" placeholder="Search products..." id="searchInputMobile">
                             </form>
                         </li>
 
-                        <!-- User Icon in Mobile Menu -->
-                        <li class="nav-item d-lg-none">
-                            <a href="../html/login.html" class="btn">
+                        <!-- User Icon mobile -->
+                        <li class="nav-item dropdown d-lg-none">
+                            <a href="#" class="btn" data-bs-toggle="dropdown">
                                 <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
                             </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../html/profile.html">Profile</a></li>
+                                <li><a class="dropdown-item" href="../html/login.html">Login/Signup</a></li>
+                            </ul>
                         </li>
 
-                        <!-- Shopping Cart in Mobile Menu -->
+                        <!-- Shopping Cart mobile-->
                         <li class="nav-item d-lg-none">
                             <a href="#" class="btn">
                                 <i class="bi bi-basket2-fill text-white" style="font-size: 24px;"></i>
@@ -86,16 +90,22 @@ function loadHeader() {
                     </ul>
                 </div>
 
-                <!-- Search Bar for Desktop -->
+                <!-- Search Bar desktop -->
                 <form class="d-flex d-none d-lg-block" id="searchFormDesktop">
                     <input class="form-control" type="search" placeholder="Search products..." id="searchInputDesktop">
                 </form>
                 
-                <!-- User and Shopping Cart for Desktop -->
+                <!-- User and Shopping Cart desktop -->
                 <div class="ms-3 d-flex gap-3 d-none d-lg-flex">
-                    <a href="../html/login.html" class="btn">
-                        <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
-                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="btn" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../html/profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="../html/login.html">Login/Signup</a></li>
+                        </ul>
+                    </div>
                     <a href="#" class="btn">
                         <i class="bi bi-basket2-fill text-white" style="font-size: 24px;"></i>
                     </a>

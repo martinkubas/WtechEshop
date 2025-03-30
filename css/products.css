@@ -48,3 +48,11 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
+.page-link {
+    color: white;
+    background-color: #D84040;
+}
+.page-link:hover {
+    color: white;
+    background-color: #A31D1D;
+}
