@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #D84040; 
+}
+#game {
+    color: #A31D1D;
+    font-weight: bolder;
+}
+.navbar-brand {
+    font-size: 32px; 
+    font-weight: bolder;
+}
+.nav-item {
+    font-weight: 900;
+}
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: white;
+    margin-right: 1rem;
+}
+.navbar-nav .nav-link:hover {
+    text-decoration: underline;
+}
+.navbar-toggler {
+    border-color: white !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    box-shadow: none !important;
+}
+
+
+.badge {
+    font-size: 0.75rem;
+    background-color: #ffffff !important;
+    color: #D84040 !important;
+    font-weight: bold;
+    position: absolute;
+    top: 2px;
+    left: 30px;
+    border-radius: 12px;
+    padding: 0.25em 0.5em;
+    min-width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}

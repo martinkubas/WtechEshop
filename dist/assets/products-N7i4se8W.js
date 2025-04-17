@@ -1,0 +1,1 @@
+document.getElementById("see-more").addEventListener("click",function(t){let e=document.getElementById("more-genres");e.style.display==="none"?(e.style.display="block",this.textContent="See less..."):(e.style.display="none",this.textContent="See more...")});
