@@ -2,17 +2,24 @@
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/product.css') }}">
 @endpush
+
 @section('content')
 <div class="container mt-4">
     <div class="row">
         <div class="col-lg-6 order-lg-1 order-2">
             <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                @php
+                    $images = json_decode($product->images, true);
+                    $images = array_map(function($image) {
+                        return str_replace(['\\', '\/'], '/', $image);
+                    }, $images);
+                @endphp
                 <div class="carousel-inner">
-                    @foreach ($product->images as $index => $image)
-                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                            <img src="{{ asset('pictures/spiderman/' . $image) }}" class="d-block w-100 prod-image" alt="{{ $product->name }}">
-                        </div>
-                    @endforeach
+                @foreach ($images as $index => $image)
+                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                        <img src="{{ asset('pictures/' . $image) }}" class="d-block w-100 prod-image" alt="{{ $product->name }}">
+                    </div>
+                @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

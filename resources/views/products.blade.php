@@ -20,10 +20,15 @@
                 @foreach($products as $product)
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="card product-card">
-                            <!-- Link to individual product page -->
+                            @php
+                                $images = json_decode($product->images, true);
+                                $images = array_map(function($image) {
+                                    return str_replace(['\\', '\/'], '/', $image); 
+                                }, $images);
+                            @endphp
                             <a href="{{ url('product/' . $product->id) }}" class="product-link">
                                 <div class="product-image">
-                                    <img src="{{ asset('pictures/spiderman/' . $product->images[0]) }}" class="card-img-top" alt="{{ $product->name }}">
+                                    <img src="{{ asset('pictures/' . $images[0]) }}" class="card-img-top" alt="{{ $product->name }}">
                                 </div>
                             </a>
                             <div class="card-body text-center">
@@ -73,7 +78,7 @@
     </ul>
 @endif
 
-<!-- Filters Menu (Offcanvas) -->
+<!-- Filters Menu -->
 <div class="offcanvas offcanvas-start" id="filtersMenu">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title">Filters & Sorting</h5>

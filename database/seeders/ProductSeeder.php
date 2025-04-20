@@ -23,6 +23,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2023,
                 'platforms' => ['PC', 'Xbox'],
                 'genres' => ['Action', 'Stealth', 'Futuristic'], 
+                'images' => ['cb/1.webp', 'cb/2.webp', 'cb/3.webp'],
             ],
             [
                 'name' => 'Cyber Drift: Velocity Core',
@@ -31,6 +32,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2022,
                 'platforms' => ['PC', 'Playstation'], 
                 'genres' => ['Racing', 'Cyberpunk'], 
+                'images' => ['id/1.webp', 'id/2.webp', 'id/3.webp'],
             ],
             [
                 'name' => 'Warden of the Flame',
@@ -39,6 +41,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2021,
                 'platforms' => ['Playstation'], 
                 'genres' => ['RPG', 'Fantasy'], 
+                'images' => ['itt/1.webp', 'itt/2.webp', 'itt/3.webp'],
             ],
             [
                 'name' => 'Galactic Outlaws: Rogue Sector',
@@ -47,6 +50,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2023,
                 'platforms' => ['PC', 'Xbox'], 
                 'genres' => ['Action', 'Sci-Fi'], 
+                'images' => ['jp/1.webp', 'jp/2.webp', 'jp/3.webp', 'jp/4.webp'],
             ],
             [
                 'name' => 'Mech Titans: Iron Uprising',
@@ -55,6 +59,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2020,
                 'platforms' => ['PC', 'Playstation', 'Xbox'], 
                 'genres' => ['Action', 'Shooter', 'Open World'], 
+                'images' => ['kcd/1.webp', 'kcd/2.webp', 'kcd/3.webp'],
             ],
             [
                 'name' => 'Echoes of Atlantis',
@@ -63,6 +68,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2021,
                 'platforms' => ['PC'], 
                 'genres' => ['Adventure', 'Puzzle'], 
+                'images' => ['lou/1.webp', 'lou/2.webp', 'lou/3.webp', 'lou/4.webp', 'lou/5.webp'],
             ],
             [
                 'name' => 'Steel Hearts: Combat Protocol',
@@ -71,6 +77,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2022,
                 'platforms' => ['Playstation'], 
                 'genres' => ['Fighting', 'Sci-Fi'], 
+                'images' => ['mc/1.webp', 'mc/2.webp'],
             ],
             [
                 'name' => 'Phantom Reign',
@@ -79,6 +86,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2023,
                 'platforms' => ['PC', 'Xbox'], 
                 'genres' => ['Action', 'Fantasy'], 
+                'images' => ['sf/1.webp', 'sf/2.webp', 'sf/3.webp', 'sf/4.webp'],
             ],
             [
                 'name' => 'Nova Blasters: Core War',
@@ -87,6 +95,7 @@ class ProductSeeder extends Seeder
                 'release_year' => 2021,
                 'platforms' => ['PC'],
                 'genres' => ['Shooter', 'Sci-Fi'], 
+                'images' => ['spiderman/1.webp', 'spiderman/2.webp', 'spiderman/3.webp', 'spiderman/4.webp', 'spiderman/5.webp'],
             ],
             [
                 'name' => 'Chrono Drift: Time Racers',
@@ -95,12 +104,11 @@ class ProductSeeder extends Seeder
                 'release_year' => 2023,
                 'platforms' => ['Playstation'], 
                 'genres' => ['Racing', 'Time Travel'], 
+                'images' => ['stalker/1.webp', 'stalker/2.webp', 'stalker/3.webp', 'stalker/4.webp'],
             ]
         ];
     
-        $imageSet = [
-            'sp1.webp', 'sp2.webp', 'sp3.webp', 'sp4.webp', 'sp5.webp'
-        ];
+       
 
         foreach ($baseProducts as $product) {
             Product::create([
@@ -110,7 +118,7 @@ class ProductSeeder extends Seeder
                 'release_year' => $product['release_year'], 
                 'platforms' => json_encode($product['platforms']), 
                 'genres' => json_encode($product['genres']), 
-                'images' => $imageSet 
+                'images' => json_encode($product['images'])
             ]);
         }
 
@@ -122,7 +130,7 @@ class ProductSeeder extends Seeder
                 'release_year' => $product['release_year'],
                 'platforms' => json_encode($product['platforms']), 
                 'genres' => json_encode($product['genres']), 
-                'images' => $imageSet
+                'images' => json_encode($product['images'])
             ]);
         }
 

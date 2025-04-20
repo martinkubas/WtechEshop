@@ -5,9 +5,16 @@
 @section('content')
     <div id="gameCarousel" class="carousel slide container-fluid mt-4" data-bs-ride="carousel">
         <div class="carousel-inner">
-            @foreach ($topGames as $index => $game)
+            @foreach ($uniqueGames as $index => $game)
+                @php 
+                    //manipulacia lomiek, kvoli tomu ako sa ukladaju do databazy
+                    $images = json_decode($game->images, true);
+                    $images = array_map(function($image) {
+                        return str_replace(['\\', '\/'], '/', $image);
+                    }, $images);
+                @endphp
                 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                    <img src="{{ asset('pictures/spiderman/' . $game->images[0]) }}" class="d-block w-100" alt="{{ $game->name }}">
+                    <img src="{{ asset('pictures/' . $images[1]) }}" class="d-block w-100" alt="{{ $game->name }}">
                     <div class="carousel-caption d-flex flex-column align-items-start text-start">
                         <h2 class="fw-bold">{{ $game->name }}</h2>
                         <p class="fs-4">${{ number_format($game->price, 2) }}</p>

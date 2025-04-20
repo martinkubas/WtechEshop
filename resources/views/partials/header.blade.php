@@ -37,8 +37,12 @@
                         <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
-                        <li><a class="dropdown-item" href="{{ url('login') }}">Login/Signup</a></li>
+                        @if(session('user_id'))
+                            <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                        @else
+                            <li><a class="dropdown-item" href="{{ url('login') }}">Login/Signup</a></li>
+                        @endif
                     </ul>
                 </li>
 
@@ -61,8 +65,12 @@
                     <i class="bi bi-person-circle text-white" style="font-size: 24px;"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
-                    <li><a class="dropdown-item" href="{{ url('login') }}">Login/Signup</a></li>
+                    @if(session('user_id'))
+                        <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                    @else
+                        <li><a class="dropdown-item" href="{{ url('login') }}">Login/Signup</a></li>
+                    @endif
                 </ul>
             </div>
             <a href="{{ url('cart') }}" class="btn position-relative">
@@ -72,4 +80,3 @@
         </div>
     </div>
 </nav>
-
