@@ -32,7 +32,8 @@
                     <tr>
                         <th>Order ID</th>
                         <th>Date</th>
-                        <th>Status</th>
+                        <th>Delivery Status</th>
+                        <th>Address</th>
                         <th>Total</th>
                     </tr>
                 </thead>
@@ -41,7 +42,8 @@
                     <tr>
                         <td>#{{ str_pad($order->id, 3, '0', STR_PAD_LEFT) }}</td>
                         <td>{{ $order->created_at->format('F d, Y') }}</td>
-                        <td>{{ ucfirst($order->order_status) }}</td>
+                        <td>{{ ucfirst($order->delivery_status) }}</td>
+                        <td>{{ $order->delivery_address }}</td>
                         <td>
                             ${{ number_format(
                                 $order->products->sum(function ($product) {
