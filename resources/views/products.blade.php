@@ -100,10 +100,10 @@
                 <input type="number" class="form-control" name="max_price" placeholder="Max" value="{{ request('max_price') }}">
             </div>
 
-            <h5 class="mt-3">Date of release</h5>
+            <h5 class="mt-3">Year of release</h5>
             <select class="form-select" name="release_year">
                 <option value="">Select year</option>
-                @foreach(range(2020, date('Y')) as $year)
+                @foreach($releaseYears as $year)
                     <option value="{{ $year }}" {{ request('release_year') == $year ? 'selected' : '' }}>{{ $year }}</option>
                 @endforeach
             </select>

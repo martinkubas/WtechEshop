@@ -22,3 +22,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/signup', [AuthController::class, 'showSignupForm'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup.submit');
 
+
+Route::post('/products', [App\Http\Controllers\ProductController::class, 'store'])->name('products.store');
+Route::delete('/products', [App\Http\Controllers\ProductController::class, 'destroy'])->name('products.destroy');
+Route::post('/products/update', [App\Http\Controllers\ProductController::class, 'update'])->name('products.update');
+

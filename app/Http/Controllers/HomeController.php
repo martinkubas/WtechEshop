@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $topGames = Product::orderBy('price', 'desc')->get(); 
+        $topGames = Product::orderBy('id', 'asc')->get(); 
 
         $uniqueGames = [];
         $firstWords = []; 

@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
-            $table->timestamp('order_date')->useCurrent(); 
-            $table->string('order_status')->default('pending'); 
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->timestamp('order_date')->useCurrent();
+            $table->string('order_status')->default('pending');
+            $table->string('payment_method')->nullable();
+            $table->string('delivery_method')->nullable();
+            $table->text('delivery_address')->nullable();
+            $table->string('delivery_status')->nullable();
             $table->timestamps();
         });
     }

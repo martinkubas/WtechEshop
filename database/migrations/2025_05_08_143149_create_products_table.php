@@ -16,15 +16,17 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price', 8, 2);
             $table->text('description');
-            $table->string('platform');
-            $table->string('genre');
-            $table->year('release_date');
-            $table->string('developer');
-            $table->json('images'); 
+            $table->json('images')->nullable();
+            $table->year('release_year')->nullable();
+            $table->json('platforms')->nullable();
+            $table->json('genres')->nullable();
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('products');

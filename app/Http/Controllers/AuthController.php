@@ -69,6 +69,10 @@ class AuthController extends Controller
             return redirect()->route('login');
         }
 
+        if ($user->is_admin) {
+            return view('adminProfile', compact('user'));
+        }
+    
         return view('profile', compact('user'));
     }
 

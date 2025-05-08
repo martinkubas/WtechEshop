@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product; 
+use Illuminate\Support\Facades\Log; 
+use Illuminate\Support\Facades\DB; 
 
 
 class ProductController extends Controller
@@ -17,7 +19,7 @@ class ProductController extends Controller
         $releaseYear = $request->input('release_year');
         $platforms = $request->input('platforms', []);
         $genres = $request->input('genres', []);
-
+    
         $productsQuery = Product::query();
 
         if ($minPrice) {
@@ -74,9 +76,16 @@ class ProductController extends Controller
                 break;
         }
 
+        $releaseYears = Product::distinct()
+        ->whereNotNull('release_year')
+        ->pluck('release_year')
+        ->sort()
+        ->values()
+        ->all();
+
         $products = $productsQuery->paginate(12);
 
-        return view('products', compact('products'));
+        return view('products', compact('products', 'releaseYears'));
     }
 
     public function show($id)
@@ -99,5 +108,125 @@ class ProductController extends Controller
                     ->paginate(12);  
 
         return view('products', compact('products', 'query'));
+    }
+
+    public function store(Request $request)
+    {
+        try {
+            if (!$request->hasFile('images')) {
+                return redirect()->back()->with('error', 'No images were uploaded. Please select at least one image.');
+            }
+            
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'description' => 'required|string',
+                'price' => 'required|numeric|min:0',
+                'release_year' => 'nullable|numeric',
+            ]);
+            
+            $folderName = strtolower(str_replace(' ', '_', preg_replace('/[^A-Za-z0-9\-\s]/', '', $request->name)));
+            $fullPath = public_path('pictures/' . $folderName);
+            
+            if (!file_exists($fullPath)) {
+                if (!mkdir($fullPath, 0777, true)) {
+                    return redirect()->back()->with('error', 'Server error: Could not create upload directory');
+                }
+            }
+            
+            $imagesPaths = [];
+            $files = $request->file('images');
+            
+            foreach ($files as $index => $file) {
+                if (!$file->isValid()) {
+                    continue; 
+                }
+                
+                $filename = $index . '.' . $file->getClientOriginalExtension();
+                $fullFilePath = $fullPath . '/' . $filename;
+                
+                if ($file->move($fullPath, $filename)) {
+                    $imagesPaths[] = $folderName . '/' . $filename;
+                } 
+            }
+        
+            $product = Product::create([
+                'name' => $validated['name'],
+                'description' => $validated['description'],
+                'price' => $validated['price'],
+                'images' => json_encode($imagesPaths),
+                'release_year' => $request->release_year,
+                'platforms' => json_encode($request->platforms ?? []),
+                'genres' => json_encode($request->genres ?? []),
+            ]);
+            
+            
+            return redirect()->back()->with('success', 'Product added successfully with ' . count($imagesPaths) . ' images!');
+            
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
+        }
+    }
+
+    public function destroy(Request $request)
+    {
+        try {
+            $request->validate([
+                'product_id' => 'required|numeric|exists:products,id'
+            ]);
+            
+            $product = Product::findOrFail($request->product_id);
+
+            $product->delete();            
+            
+            return redirect()->back()->with('success', 'Product deleted successfully from database.');
+            
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return redirect()->back()->with('error', 'Product not found.');
+            
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error deleting product: ' . $e->getMessage());
+        }
+    }
+
+    public function update(Request $request)
+    {        
+        try {
+            $request->validate([
+                'product_id' => 'required|numeric|exists:products,id'
+            ]);
+            
+            $product = Product::findOrFail($request->product_id);
+            
+            if ($request->filled('name')) {
+                $product->name = $request->name;
+            }
+            
+            if ($request->filled('description')) {
+                $product->description = $request->description;
+            }
+            
+            if ($request->filled('price')) {
+                $product->price = $request->price;
+            }
+            
+            if ($request->filled('release_year')) {
+                $product->release_year = $request->release_year;
+            }
+            
+            if ($request->has('platforms')) {
+                $product->platforms = json_encode($request->platforms ?? []);
+            }
+            
+            if ($request->has('genres')) {
+                $product->genres = json_encode($request->genres ?? []);
+            }
+            
+            $product->save();
+            
+            return redirect()->back()->with('success', 'Product updated successfully!');
+            
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error updating product: ' . $e->getMessage());
+        }
     }
 }

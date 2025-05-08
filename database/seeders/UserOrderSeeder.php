@@ -36,6 +36,14 @@ class UserOrderSeeder extends Seeder
             'email' => 'jane@example.com',
             'password' => 'password123',
         ]);
+
+        User::create([
+            'username' => 'admin',
+            'full_name' => 'Admin Admin',
+            'email' => 'admin@admin.com',
+            'password' => 'admin',
+            'is_admin' => true
+        ]);
     
         $order1 = Order::create([
             'user_id' => 1,
