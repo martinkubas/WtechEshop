@@ -27,3 +27,15 @@ Route::post('/products', [App\Http\Controllers\ProductController::class, 'store'
 Route::delete('/products', [App\Http\Controllers\ProductController::class, 'destroy'])->name('products.destroy');
 Route::post('/products/update', [App\Http\Controllers\ProductController::class, 'update'])->name('products.update');
 
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
+Route::post('/cart/remove', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/clear', [App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
+
+Route::get('/cart/count', [App\Http\Controllers\CartController::class, 'count'])->name('cart.count');
+
+Route::get('/delivery', [App\Http\Controllers\DeliveryController::class, 'index'])->name('delivery');
+Route::post('/orders', [App\Http\Controllers\DeliveryController::class, 'store'])->name('orders.store');
+Route::get('/order/confirmation/{id}', [App\Http\Controllers\DeliveryController::class, 'confirmation'])->name('order.confirmation');
+
