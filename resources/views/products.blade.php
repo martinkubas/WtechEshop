@@ -44,7 +44,7 @@
                                             data-product-name="{{ $product->name }}" 
                                             data-product-price="{{ $product->price }}"
                                             data-product-image="{{ asset('pictures/' . $images[0]) }}">
-                                        <i class="bi bi-basket2-fill" style="font-size: 24px;"></i>
+                                        <i class="bi bi-basket2-fill" style="font-size: 20px;"></i>
                                     </button>
                                 </div>
                             </div>

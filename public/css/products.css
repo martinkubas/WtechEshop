@@ -69,3 +69,15 @@
     border-color: #A31D1D;
     color: white;
 }
+.add-to-cart-btn {
+    margin-top: 0;
+    color: black;
+    background-color: transparent;
+    border: none ;
+    box-shadow: none ;
+}
+
+.add-to-cart-btn:hover {
+    background-color: transparent ;
+    color: #D84040 ; 
+}

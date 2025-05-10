@@ -116,8 +116,8 @@ class ProductSeeder extends Seeder
                 'price' => $product['price'],
                 'description' => $product['description'],
                 'release_year' => $product['release_year'], 
-                'platforms' => json_encode($product['platforms']), 
-                'genres' => json_encode($product['genres']), 
+                'platforms' => $product['platforms'], 
+                'genres' => $product['genres'], 
                 'images' => json_encode($product['images'])
             ]);
         }
@@ -128,8 +128,8 @@ class ProductSeeder extends Seeder
                 'price' => $product['price'],
                 'description' => $product['description'],
                 'release_year' => $product['release_year'],
-                'platforms' => json_encode($product['platforms']), 
-                'genres' => json_encode($product['genres']), 
+                'platforms' => $product['platforms'], 
+                'genres' => $product['genres'], 
                 'images' => json_encode($product['images'])
             ]);
         }

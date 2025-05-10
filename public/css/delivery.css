@@ -88,6 +88,9 @@
             background: #A31D1D;
             color: white;
         }
+        .form-check{
+            margin-left: 1em;
+        }
 
         .order-items::-webkit-scrollbar {
             width: 6px;
