@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
-
-
 
 class AuthController extends Controller
 {
@@ -15,6 +13,7 @@ class AuthController extends Controller
     {
         return view('login'); 
     }
+    
     public function showSignupForm()
     {
         return view('signup'); 
@@ -33,10 +32,12 @@ class AuthController extends Controller
             'username' => $request->username,
             'full_name' => $request->fullName,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => $request->password, 
             'member_since' => now(), 
         ]);
 
+        Auth::login($user);
+        
         session(['user_id' => $user->id]);
 
         return redirect()->route('profile');
@@ -51,19 +52,20 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
-        if (!$user || $request->password !== $user->password) {
-            return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
+        if ($user && $request->password === $user->password) {
+            Auth::login($user);
+            session(['user_id' => $user->id]);
+            
+            return redirect()->route('profile');
         }
 
-        session(['user_id' => $user->id]);
-
-        return redirect()->route('profile');
+        return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
     }
-
 
     public function profile()
     {
-        $user = User::with('orders.products')->find(session('user_id'));
+        $userId = Auth::check() ? Auth::id() : session('user_id');
+        $user = User::with('orders.products')->find($userId);
 
         if (!$user) {
             return redirect()->route('login');
@@ -78,7 +80,12 @@ class AuthController extends Controller
 
     public function logout()
     {
+        Auth::logout();
+        
         session()->forget('user_id');
+        session()->invalidate();
+        session()->regenerateToken();
+        
         return redirect()->route('home');
     }
 }

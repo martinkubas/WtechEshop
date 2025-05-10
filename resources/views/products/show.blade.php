@@ -31,18 +31,18 @@
                 </button>
             </div>
 
-            <div class="specifications mt-3 w-100">
+           <div class="specifications mt-3 w-100">
                 <h4>Specifications</h4>
                 <ul>
                     <li><strong>Platform:</strong> 
-                        @foreach(json_decode($product->platforms) as $platform)
+                        @foreach($product->platforms as $platform)
                             {{ $platform }}
                             @if(!$loop->last){{ ', ' }}@endif
                         @endforeach
                     </li>
                     
                     <li><strong>Genre:</strong> 
-                        @foreach(json_decode($product->genres) as $genre)
+                        @foreach($product->genres as $genre)
                             {{ $genre }}
                             @if(!$loop->last){{ ', ' }}@endif
                         @endforeach
@@ -57,11 +57,16 @@
             <h1 class="fw-bold">{{ $product->name }}</h1>
             <p class="price-text">${{ $product->price }}</p>
 
-            <button class="btn mb-3">
+            <button class="btn mb-3 add-to-cart-btn" 
+                    data-product-id="{{ $product->id }}" 
+                    data-product-name="{{ $product->name }}" 
+                    data-product-price="{{ $product->price }}"
+                    data-product-image="{{ asset('pictures/' . $images[0]) }}">
                 <i class="bi bi-basket2-fill text-white" style="font-size: 16px;"></i>
                 Add to Cart
             </button>
-            <button class="btn mb-3">
+            <button class="btn mb-3 buy-now-btn"
+                    data-product-id="{{ $product->id }}">
                 <i class="bi bi-fast-forward-fill" style="font-size: 16px;"></i>
                 Buy Now
             </button>

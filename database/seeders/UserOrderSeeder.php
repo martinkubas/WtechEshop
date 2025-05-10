@@ -22,7 +22,12 @@ class UserOrderSeeder extends Seeder
         DB::table('users')->truncate();
         
 
-
+        User::create([
+            'username' => 'guest',
+            'full_name' => 'Guest',
+            'email' => 'guest@guest.com',
+            'password' => 'guest',
+        ]);
         User::create([
             'username' => 'john_doe',
             'full_name' => 'John Doe',
@@ -46,7 +51,7 @@ class UserOrderSeeder extends Seeder
         ]);
     
         $order1 = Order::create([
-            'user_id' => 1,
+            'user_id' => 2,
             'order_status' => 'pending',
             'payment_method' => 'Credit Card',
             'delivery_method' => 'Courier',
@@ -55,7 +60,7 @@ class UserOrderSeeder extends Seeder
         ]);
 
         $order2 = Order::create([
-            'user_id' => 1,
+            'user_id' => 2,
             'order_status' => 'completed',
             'payment_method' => 'PayPal',
             'delivery_method' => 'Courier',
@@ -75,7 +80,7 @@ class UserOrderSeeder extends Seeder
         ]);
 
         $order3 = Order::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'order_status' => 'pending',
             'payment_method' => 'Bank Transfer',
             'delivery_method' => 'Pickup Point',

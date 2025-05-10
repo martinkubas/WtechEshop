@@ -102,12 +102,15 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-
-        $products =  Product::whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($query) . '%'])
-                    ->orWhereRaw('LOWER(description) LIKE ?', ['%' . strtolower($query) . '%'])
-                    ->paginate(12);  
-
-        return view('products', compact('products', 'query'));
+        
+        $products = Product::where(function($q) use ($query) {
+            $q->whereRaw('LOWER(name) LIKE ?', ['%'.strtolower($query).'%'])
+            ->orWhereRaw('LOWER(description) LIKE ?', ['%'.strtolower($query).'%']);
+        })->paginate(12);
+        
+        $releaseYears = Product::distinct()->orderBy('release_year', 'desc')->pluck('release_year')->toArray();
+        
+        return view('products', compact('products', 'releaseYears'));
     }
 
     public function store(Request $request)
@@ -155,8 +158,8 @@ class ProductController extends Controller
                 'price' => $validated['price'],
                 'images' => json_encode($imagesPaths),
                 'release_year' => $request->release_year,
-                'platforms' => json_encode($request->platforms ?? []),
-                'genres' => json_encode($request->genres ?? []),
+                'platforms' => $request->platforms ?? [],
+                'genres' => $request->genres ?? [],
             ]);
             
             
@@ -214,11 +217,11 @@ class ProductController extends Controller
             }
             
             if ($request->has('platforms')) {
-                $product->platforms = json_encode($request->platforms ?? []);
+                $product->platforms = $request->platforms ?? [];
             }
             
             if ($request->has('genres')) {
-                $product->genres = json_encode($request->genres ?? []);
+                $product->genres = $request->genres ?? [];
             }
             
             $product->save();

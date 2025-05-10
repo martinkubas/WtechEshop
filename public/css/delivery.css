@@ -1,0 +1,104 @@
+.checkout-container {
+            border: none !important;
+        }
+        
+        .checkout-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .order-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .order-item-image {
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+            border-radius: 5px;
+            background-color: #eee;
+            margin-right: 15px;
+        }
+
+        .order-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .order-totals {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .delivery-option, .payment-option {
+            display: flex;
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .delivery-option:hover, .payment-option:hover {
+            border-color: #d0403a;
+        }
+
+        .payment-option-fee {
+            color: #d0403a;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: #d0403a;
+            box-shadow: 0 0 0 0.25rem rgba(208, 64, 58, 0.25);
+        }
+
+        .proceed-btn {
+            background: #D84040;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 25px;
+            border-radius: 5px;
+            border: none;
+            transition: all 0.3s ease;
+            margin-left: 10px; 
+            max-width: 250px; 
+            margin-bottom: 10px;
+        }
+
+        .proceed-btn:hover {
+            background: #A31D1D;
+            color: white;
+        }
+
+        .order-items::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .order-items::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .order-items::-webkit-scrollbar-thumb {
+            background: #d0403a;
+            border-radius: 10px;
+        }

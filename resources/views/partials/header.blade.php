@@ -49,7 +49,7 @@
                 <li class="nav-item d-lg-none">
                     <a href="{{ url('cart') }}" class="btn position-relative">
                         <i class="bi bi-basket2-fill text-white" style="font-size: 24px;"></i>
-                        <span class="position-absolute badge rounded-pill bg-danger">5</span>
+                        <span id="cart-counter-mobile" class="position-absolute badge rounded-pill bg-danger" style="display: none;">0</span>
                     </a>
                 </li>
             </ul>
@@ -75,7 +75,7 @@
             </div>
             <a href="{{ url('cart') }}" class="btn position-relative">
                 <i class="bi bi-basket2-fill text-white" style="font-size: 24px;"></i>
-                <span class="position-absolute badge rounded-pill bg-danger">5</span>
+                <span id="cart-counter" class="position-absolute badge rounded-pill bg-danger" style="display: none;">0</span>
             </a>
         </div>
     </div>

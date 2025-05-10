@@ -39,7 +39,11 @@
                                 </h6>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="price-tag">${{ number_format($product->price, 2) }}</span>
-                                    <button class="btn btn-sm">
+                                    <button class="btn btn-sm add-to-cart-btn" 
+                                            data-product-id="{{ $product->id }}" 
+                                            data-product-name="{{ $product->name }}" 
+                                            data-product-price="{{ $product->price }}"
+                                            data-product-image="{{ asset('pictures/' . $images[0]) }}">
                                         <i class="bi bi-basket2-fill" style="font-size: 24px;"></i>
                                     </button>
                                 </div>
