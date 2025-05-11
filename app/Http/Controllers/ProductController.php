@@ -145,8 +145,7 @@ class ProductController extends Controller
                 }
                 
                 $filename = $index . '.' . $file->getClientOriginalExtension();
-                $fullFilePath = $fullPath . '/' . $filename;
-                
+
                 if ($file->move($fullPath, $filename)) {
                     $imagesPaths[] = $folderName . '/' . $filename;
                 } 
@@ -222,6 +221,33 @@ class ProductController extends Controller
             
             if ($request->has('genres')) {
                 $product->genres = $request->genres ?? [];
+            }
+            if ($request->hasFile('images')) {
+                $folderName = strtolower(str_replace(' ', '_', preg_replace('/[^A-Za-z0-9\-\s]/', '', $product->name)));
+                $fullPath = public_path('pictures/' . $folderName);
+                
+                if (!file_exists($fullPath)) {
+                    if (!mkdir($fullPath, 0777, true)) {
+                        return redirect()->back()->with('error', 'Server error: Could not create upload directory');
+                    }
+                }
+                
+                $imagesPaths = [];
+                $files = $request->file('images');
+                
+                foreach ($files as $index => $file) {
+                    if (!$file->isValid()) {
+                        continue; 
+                    }
+                    
+                    $filename = $index . '.' . $file->getClientOriginalExtension();
+
+                    if ($file->move($fullPath, $filename)) {
+                        $imagesPaths[] = $folderName . '/' . $filename;
+                    } 
+                }
+            
+                $product->images = json_encode($imagesPaths);
             }
             
             $product->save();
