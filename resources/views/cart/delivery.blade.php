@@ -184,7 +184,6 @@
                                 <input type="radio" class="form-check-input me-2" id="payment_cash" name="payment_method" value="cash" data-fee="2">
                                 <label class="form-check-label" for="payment_cash">
                                     <div class="fw-semibold mb-1">Cash on Delivery</div>
-                                    <div class="payment-option-fee">€2.00 extra fee</div>
                                 </label>
                             </div>
                         </div>

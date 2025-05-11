@@ -58,13 +58,13 @@
                 <div class="order-total-row">
                     <span>Shipping:</span>
                     <span>
-                        @if($order->delivery_method == 'Pickup')
+                        @if($order->delivery_method == 'pickup')
                             $0.00
-                        @elseif($order->delivery_method == 'Courier')
+                        @elseif($order->delivery_method == 'courier')
                             $5.00
-                        @elseif($order->delivery_method == 'Postal')
+                        @elseif($order->delivery_method == 'postal')
                             $3.00
-                        @elseif($order->delivery_method == 'GameGoBox')
+                        @elseif($order->delivery_method == 'gamegobox')
                             $4.00
                         @else
                             $0.00
@@ -80,9 +80,9 @@
                             });
                             
                             $shipping = 0;
-                            if($order->delivery_method == 'Courier') $shipping = 5;
-                            elseif($order->delivery_method == 'Postal') $shipping = 3;
-                            elseif($order->delivery_method == 'GameGoBox') $shipping = 4;
+                            if($order->delivery_method == 'courier') $shipping = 5;
+                            elseif($order->delivery_method == 'postal') $shipping = 3;
+                            elseif($order->delivery_method == 'gamegobox') $shipping = 4;
                             
                             $total = $subtotal + $shipping;
                         @endphp

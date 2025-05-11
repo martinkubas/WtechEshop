@@ -59,12 +59,6 @@
             border-color: #d0403a;
         }
 
-        .payment-option-fee {
-            color: #d0403a;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
         .form-control:focus {
             border-color: #d0403a;
             box-shadow: 0 0 0 0.25rem rgba(208, 64, 58, 0.25);
