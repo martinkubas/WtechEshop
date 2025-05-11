@@ -50,8 +50,8 @@
                 </div>
                 <div class="cart-footer">
                     <button onclick="window.location.href='{{ route('home') }}'" class="btn">Back to Shopping</button>
-                    <span>Total: $0.00</span>
-                    <button class="btn disabled-btn" disabled>Proceed to Payment</button>
+                    <span>Total: $<span id="cart-total">0.00</span></span>
+                    <button onclick="window.location.href='{{ route('delivery') }}'" class="btn" id="proceed-to-payment">Proceed to Payment</button>
                 </div>
             </div>
         @endif

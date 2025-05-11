@@ -85,6 +85,20 @@ body {
     padding: 20px;
     border-top: 1px solid #ddd;
 }
+@media (max-width: 767.98px) {
+    .cart-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cart-footer button,
+    .cart-footer span {
+        width: 100%;
+        margin: 5px 0;
+        text-align: center;
+    }
+}
 .cart-footer button {
     background-color: #d0403a;
     color: white;
